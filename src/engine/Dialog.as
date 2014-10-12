@@ -41,7 +41,7 @@ package engine {
 
 		public var background:FlxExtendedSprite;
 		public var portrait:FlxSprite;
-		public var portraitOffset:Array = [500, 130];
+		public var portraitOffset:Array = [-20, 130];
 
 		public var title:FlxText;
 		public var titleOffset:Array = [15, 10, 500];
@@ -93,7 +93,7 @@ package engine {
 		}
 
 		private function resetPortraitPosition():void {
-			portrait.x = portraitOffset[0];
+			portrait.x = FlxG.stage.width - portrait.width - portraitOffset[0];
 			portrait.y = portraitOffset[1] + offsetY;
 			portrait.y -= portrait.height;
 		}

@@ -14,15 +14,15 @@ package engine.visualnovel {
 		public var currentEvent:Event;
 		public var currentQuestion:Question;
 		public var currentDialog:Dialog;
-		public var currentPage:FlxSprite;
+		public var currentBackground:FlxSprite;
 
 		public var transitioning:Boolean = false;
 
 		public override function create():void {
 			super.create();
 
-			currentPage = new FlxSprite(0,0);
-			props.add(currentPage);
+			currentBackground = new FlxSprite(0,0);
+			props.add(currentBackground);
 
 			nextEvent();
 		}
@@ -60,19 +60,19 @@ package engine.visualnovel {
 			trace("--> Event", event);
 			currentEvent = event;
 
-			if(event.newPage != null) { displayPage(event.newPage); }
+			if(event.newBackground != null) { displayBackground(event.newBackground); }
 			if(event.newBGM != null) { Game.playMusic(event.newBGM); }
 			if(event.newDialog != null) { displayDialog(event.newDialog); }
 			if(event.newQuestion != null) { displayQuestion(event.newQuestion); }
 		}
 
-		public function displayPage(newPage:Class):void {
+		public function displayBackground(newBackground:Class):void {
 			transitioning = true;
-			Utils.fadeOut(currentPage, Config.SCENE_FADE_DELAY, function():void {
+			Utils.fadeOut(currentBackground, Config.SCENE_FADE_DELAY, function():void {
 
-				currentPage.loadGraphic(newPage);
+				currentBackground.loadGraphic(newBackground);
 
-				Utils.fadeIn(currentPage, Config.SCENE_FADE_DELAY, function():void {
+				Utils.fadeIn(currentBackground, Config.SCENE_FADE_DELAY, function():void {
 					transitioning = false;
 				});
 
@@ -119,6 +119,10 @@ package engine.visualnovel {
 
 		override protected function hasInventoryEnabled():Boolean {
 			return false;
+		}
+
+		public static function start(chapterClass:Class):void {
+			Game.transitionToScene(new chapterClass);
 		}
 	}
 }

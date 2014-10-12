@@ -4,13 +4,13 @@ package engine.visualnovel {
 	public class Event {
 
 		public var chapter:Chapter = null;
-		public var newPage:Class = null;
+		public var newBackground:Class = null;
 		public var newBGM:String = null;
 		public var newDialog:Dialog = null;
 		public var newQuestion:Question = null;
 
-		public function page(page:Class):Event {
-			this.newPage = page;
+		public function background(background:Class):Event {
+			this.newBackground = background;
 			return this;
 		}
 
@@ -19,7 +19,7 @@ package engine.visualnovel {
 			return this;
 		}
 
-		public function dialog(charClass:Class, message:String, expression:String = "default", position:String = "top"):Event {
+		public function dialog(charClass:Class, message:String, expression:String = "default", position:String = "bottom"):Event {
 			this.newDialog = new Dialog(chapter, new charClass, message, expression, position);
 			return this;
 		}
@@ -41,20 +41,20 @@ package engine.visualnovel {
 			return this;
 		}
 
-		public static function newPage(chapter:Chapter, page:Class):Event {
-			return (new Event()).setChapter(chapter).page(page);
+		public static function newBackground(chapter:Chapter, background:Class):Event {
+			return (new Event()).setChapter(chapter).background(background);
 		}
 
 		public static function newBGM(chapter:Chapter, bgm:String):Event {
 			return (new Event()).setChapter(chapter).bgm(bgm);
 		}
 
-		public static function newDialog(chapter:Chapter, charClass:Class, message:String, expression:String = "default", position:String = "top"):Event {
+		public static function newDialog(chapter:Chapter, charClass:Class, message:String, expression:String = "default", position:String = "bottom"):Event {
 			return (new Event()).setChapter(chapter).dialog(charClass, message, expression, position);
 		}
 
 		public function toString():String {
-			return "[Event: page=" + newPage + ", bgm=" + newBGM + ", dialog=" + newDialog + ", question=" + newQuestion + "]";
+			return "[Event: bg=" + newBackground + ", bgm=" + newBGM + ", dialog=" + newDialog + ", question=" + newQuestion + "]";
 		}
 
 	}

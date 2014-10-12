@@ -38,7 +38,7 @@ package engine {
 		public function addPortrait(expression:String, graphic:Class, isAnimated:Boolean = false):void {
 			portraits[expression] = graphic;
 			portraitSprites[expression] = new FlxSprite(0,0);
-			portraitSprites[expression].loadGraphic(graphic, isAnimated, false, 100, 100);
+			portraitSprites[expression].loadGraphic(graphic, isAnimated, false);
 		}
 
 		/**

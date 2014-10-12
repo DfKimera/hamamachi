@@ -41,13 +41,13 @@ package engine {
 
 		public var background:FlxExtendedSprite;
 		public var portrait:FlxSprite;
-		public var portraitOffset:Array = [10,16];
+		public var portraitOffset:Array = [500, 130];
 
 		public var title:FlxText;
-		public var titleOffset:Array = [125, 14, 610];
+		public var titleOffset:Array = [15, 10, 500];
 
 		public var text:FlxText;
-		public var textOffset:Array = [125, 52, 610];
+		public var textOffset:Array = [15, 55, 500];
 
 		private static var currentSFX:FlxSound = null;
 		private var soundToPlay:String = null;
@@ -71,15 +71,15 @@ package engine {
 
 			var sprite:Class = (this.position == "bottom") ? BACKGROUND_BOTTOM : BACKGROUND_TOP;
 
+			portrait = character.getPortrait(expression);
+			//resetPortraitPosition();
+			add(portrait);
+
 			background = new FlxExtendedSprite(0, 0);
 			background.loadGraphic(sprite, false, false, 800, 600);
 			background.mouseReleasedCallback = this.skipDialog;
 			add(background);
 			background.ID = int.MAX_VALUE-2;
-
-			portrait = character.getPortrait(expression);
-			//resetPortraitPosition();
-			add(portrait);
 
 			title = new FlxText(titleOffset[0], titleOffset[1] + offsetY, titleOffset[2], character.characterName);
 			title.setFormat("comicrelief", 26, 0xFFFFFF, "left", 0xFF000000);
@@ -95,6 +95,7 @@ package engine {
 		private function resetPortraitPosition():void {
 			portrait.x = portraitOffset[0];
 			portrait.y = portraitOffset[1] + offsetY;
+			portrait.y -= portrait.height;
 		}
 
 		public function sound(name:String):Dialog {

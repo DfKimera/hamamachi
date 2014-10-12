@@ -14,6 +14,12 @@ package engine {
 
 		public static function play(name:String):void {
 			var sound:Class = SFX["SFX_"+name.toUpperCase()];
+
+			if(!sound || !(sound is Class)) {
+				trace("Invalid SFX! ", name, sound);
+				return;
+			}
+
 			trace("SFX: ", sound);
 			FlxG.play( sound, 0.5 );
 		}

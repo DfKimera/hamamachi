@@ -1,82 +1,85 @@
-package {
+package engine.visualnovel {
 
+	import engine.Cursor;
 	import engine.SFX;
 
 	import org.flixel.FlxG;
 	import org.flixel.FlxGroup;
 	import org.flixel.FlxSprite;
 	import org.flixel.FlxState;
+	import org.flixel.FlxText;
 
-	public class Menu extends FlxState {
+	public class Question extends FlxGroup {
 
-		private var buttonOffset:Array = [260, 300];
-		private var buttonHeight:int = 60;
-		private var baseY:int = 0;
+		private var optionHeight:int = 40;
+		private var baseY:int = 90;
 
-		[Embed(source="../assets/menu_background.png")]
+		[Embed(source="../../../assets/comicrelief.ttf", fontFamily="comicrelief", embedAsCFF="false")]
+		public static var FONT:Class;
+
+		[Embed(source="../../../assets/question_bg.png")]
 		public var BACKGROUND_SPRITE:Class;
 
 		public var background:FlxSprite;
+
 		public var optionIndex:Array = [];
 		public var options:Array = [];
 		public var $options:FlxGroup = new FlxGroup();
 
 		public var selectedOption:int = -1;
 
-		public override function create():void {
+		public var title:FlxText;
+		public var x:int;
+		public var y:int;
 
-			Game.playMusic("menu");
+		public function Question(title:String, x:int = 0, y:int = 0) {
 
-			background = new FlxSprite(0,0);
-			background.loadGraphic(BACKGROUND_SPRITE);
-			add(background);
+			trace("Question: ", title);
 
-			baseY = buttonOffset[1];
-			createOptions();
+			this.x = x;
+			this.y = y;
+
+			this.background = new FlxSprite(x,y);
+			this.background.loadGraphic(BACKGROUND_SPRITE);
+
+			this.title = new FlxText(x, y + 28, 550, title);
+			this.title.setFormat("comicrelief", 20, 0xFFFFFF, "center", 0xFF000000);
+
+			add(this.background);
+			add(this.title);
 			add($options);
 
 		}
 
-		public function createOptions():void {
-
-			addOption("Jogar", function():void {
-				Game.start();
-			});
-
-			addOption("Créditos", function():void {
-				Game.openCredits();
-			});
-
-		}
 
 		public function triggerOption(name:String):void {
 			if(!options[name]) { return; }
-			trace("Menu (trigger): ", name, options[name]);
-			(options[name] as MenuOption).trigger();
+			trace("Choice (trigger): ", name, options[name]);
+			(options[name] as Choice).trigger();
 		}
 
-		public function addOption(name:String,  callback:Function):void {
+		public function addOption(name:String,  callback:Function):Question {
 
-			var option:MenuOption = new MenuOption(name, callback);
-			option.x = buttonOffset[0];
-			option.y = baseY;
+			var option:Choice = new Choice(name, callback, x + 135, y + baseY);
 
 			options[name] = option;
 			optionIndex.push(name);
 			$options.add(option);
 
-			baseY += buttonHeight;
+			baseY += optionHeight;
+
+			return this;
 
 		}
 
 		public function unselectOptions():void {
 			for(var i:String in options) {
-				(options[i] as MenuOption).setOff();
+				(options[i] as Choice).setOff();
 			}
 		}
 
 		public function selectOption(name:String):void {
-			(options[name] as MenuOption).setOn();
+			(options[name] as Choice).setOn();
 		}
 
 		public override function update():void {

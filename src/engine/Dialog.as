@@ -12,17 +12,17 @@ package engine {
 
 	public class Dialog extends FlxGroup {
 
+		[Embed(source="../../assets/comiczine.otf", fontFamily="comiczine", embedAsCFF="false")]
+		public static var FONT_TITLE:Class;
+
+		[Embed(source="../../assets/comicrelief.ttf", fontFamily="comicrelief", embedAsCFF="false")]
+		public static var FONT_TEXT:Class;
+
 		[Embed(source="../../assets/character_dialog_box.png")]
 		private var BACKGROUND_TOP:Class;
 
 		[Embed(source="../../assets/character_dialog_box_bottom.png")]
 		private var BACKGROUND_BOTTOM:Class;
-
-		[Embed(source="../../assets/comiczine.otf", fontFamily="comiczine", embedAsCFF="false")]
-		private var TITLE_FONT:Class;
-
-		[Embed(source="../../assets/komika.ttf", fontFamily="komika", embedAsCFF="false")]
-		private var TEXT_FONT:Class;
 
 		public var isActive:Boolean = false;
 		public var isCompleted:Boolean = false;
@@ -82,11 +82,11 @@ package engine {
 			add(portrait);
 
 			title = new FlxText(titleOffset[0], titleOffset[1] + offsetY, titleOffset[2], character.characterName);
-			title.setFormat("comiczine", 32, 0x9ee03f, "left", 0xFF000000);
+			title.setFormat("comicrelief", 26, 0xFFFFFF, "left", 0xFF000000);
 			add(title);
 
 			text = new FlxText(textOffset[0], textOffset[1] + offsetY, textOffset[2], "");
-			text.setFormat("komika", 18, 0xFFFFFF, "left", 0xFF000000);
+			text.setFormat("comicrelief", 18, 0xFFFFFF, "left", 0xFF000000);
 			add(text);
 
 
@@ -140,7 +140,7 @@ package engine {
 			});
 		}
 
-		private function completeMessage():void {
+		public function completeMessage():void {
 			this.fxDisplay = this.message;
 			this.text.text = this.fxDisplay;
 			this.isCompleted = true;
@@ -158,8 +158,14 @@ package engine {
 		}
 
 		public override function kill():void {
-			this.remove(portrait);
+			isActive = false;
+
+			if(portrait) {
+				this.remove(portrait);
+			}
+
 			portrait = null;
+
 			super.kill();
 		}
 
@@ -197,7 +203,7 @@ package engine {
 			return dialog;
 		}
 
-		private static function showDialog(dialog:Dialog):void {
+		public static function showDialog(dialog:Dialog):void {
 			openDialog = dialog;
 
 			dialog.setAll("alpha", 0);

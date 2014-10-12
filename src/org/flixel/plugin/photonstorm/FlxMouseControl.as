@@ -203,8 +203,6 @@ package org.flixel.plugin.photonstorm
 			for each (var i:FlxExtendedSprite in clickStack) {
 				clickStackDebug.push("<"+i+">("+i.ID+")");
 			}
-
-			trace("Mouse handler sequence (last is picked): [", clickStackDebug, "]");
 			
 			clickTarget = clickStack.pop();
 			

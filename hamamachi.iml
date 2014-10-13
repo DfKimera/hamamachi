@@ -2,7 +2,7 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="hamamachi">
     <configurations>
-      <configuration name="hamamachi" pure-as="true" main-class="Bootstrap" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/hamamachi">
+      <configuration name="hamamachi" pure-as="true" main-class="Bootstrap" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/hamamachi" wrapper-template-path="$MODULE_DIR$/html-template">
         <dependencies target-player="15.0">
           <entries>
             <entry library-id="56a0f87e-efa0-4298-b90b-f2c8eaab036b">

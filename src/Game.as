@@ -1,5 +1,6 @@
 package {
-	import chapters.Chapter1;
+	import chapters.Chapter1_Kaiju;
+	import chapters.CharacterSelection;
 
 	import engine.Cursor;
 	import engine.Dialog;
@@ -52,7 +53,7 @@ package {
 		 * Switches to the game's starting scene
 		 */
 		public static function start():void {
-			Game.transitionToScene(new Chapter1());
+			Game.transitionToScene(new CharacterSelection());
 		}
 
 		/**

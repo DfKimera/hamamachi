@@ -8,11 +8,14 @@ package chapters {
 			var question:Question = addQuestion("Qual é seu pensamento?");
 			question.addOption("Eu tenho uma solução", optSolution);
 
-			if(StoryLog.scoreMahou == 2 || StoryLog.scoreMahou == 1 && StoryLog.scoreNeutral == 1) {
+			var mahouVictory:Boolean = StoryLog.scoreMahou == 2 || (StoryLog.scoreMahou == 1 && StoryLog.scoreNeutral == 1);
+			var kaijuVictory:Boolean = StoryLog.scoreKaiju == 2 || (StoryLog.scoreKaiju == 1 && StoryLog.scoreNeutral == 1);
+
+			if(mahouVictory || (!mahouVictory && !kaijuVictory)) {
 				question.addOption("Não vou deixar a cidade ser destruída", optHelpCity);
 			}
 
-			if(StoryLog.scoreKaiju == 2 || StoryLog.scoreKaiju == 1 && StoryLog.scoreNeutral == 1) {
+			if(kaijuVictory || (!mahouVictory && !kaijuVictory)) {
 				question.addOption("Não estou gostando do jeito dessas guerreiras mágicas. Não posso deixá-las no comando.", optPreventMahou);
 			}
 		}

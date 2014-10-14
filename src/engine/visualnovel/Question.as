@@ -42,8 +42,8 @@ package engine.visualnovel {
 			this.background = new FlxSprite(x,y);
 			this.background.loadGraphic(BACKGROUND_SPRITE);
 
-			this.title = new FlxText(x, y + 22, 550, title);
-			this.title.setFormat("comicrelief", 26, 0xFFFFFF, "center", 0xFF000000);
+			this.title = new FlxText(x, y + 26, 550, title);
+			this.title.setFormat("comicrelief", 20, 0xFFFFFF, "center", 0xFF000000);
 
 			add(this.background);
 			add(this.title);

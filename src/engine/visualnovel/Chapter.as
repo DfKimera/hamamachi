@@ -64,10 +64,19 @@ package engine.visualnovel {
 			if(event.newBGM != null) { Game.playMusic(event.newBGM); }
 			if(event.newDialog != null) { displayDialog(event.newDialog); }
 			if(event.newQuestion != null) { displayQuestion(event.newQuestion); }
+
+			if(event.doLoadNext) {
+				nextEvent();
+			}
 		}
 
 		public function displayBackground(newBackground:Class):void {
 			transitioning = true;
+
+			if(!currentBackground) {
+				currentBackground = new FlxSprite(0,0);
+			}
+
 			Utils.fadeOut(currentBackground, Config.SCENE_FADE_DELAY, function():void {
 
 				currentBackground.loadGraphic(newBackground);

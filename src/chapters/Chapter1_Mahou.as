@@ -13,7 +13,7 @@ package chapters {
 
 			var self:Chapter = this;
 
-			addEvent(Event.newBackground(this, Assets.BG_CITY));
+			addEvent(Event.newBackground(this, Assets.BG_CITY).loadNext());
 			addQuestion("O que você quer fazer?")
 				.addOption("Ignorar", optIgnore)
 				.addOption("Correr atrás e devolver broche", optGoAfter)

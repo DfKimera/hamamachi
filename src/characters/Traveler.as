@@ -13,7 +13,7 @@ package characters {
 		public static var PORTRAIT_ANGRY:Class;
 
 		override public function setCharacterInfo():void {
-			this.characterName = "Traveler";
+			this.characterName = "Viajante";
 			this.setPortraits({
 				'default': [PORTRAIT_DEFAULT, false],
 				'worried': [PORTRAIT_WORRIED, false],

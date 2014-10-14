@@ -6,6 +6,7 @@ package chapters {
 	public class Cutscene1_StartMahou extends ComicScene {
 
 		public override function prepare():void {
+			Game.playMusic("cross_the_line");
 			pages = [Assets.C101, Assets.C102, Assets.C103];
 		}
 

@@ -20,6 +20,8 @@ package engine.visualnovel {
 		private var onTriggerHandler:Function;
 		private var isOver:Boolean = false;
 
+		private var current:String = "off";
+
 		public var title:FlxText;
 
 		public function Choice(item:String, onTriggerHandler:Function, x:int, y:int) {
@@ -41,8 +43,10 @@ package engine.visualnovel {
 
 			add(btn);
 
-			title = new FlxText(x, y + 6, 280, btn.name);
-			title.setFormat("comicrelief", 16, 0xFFFFFF, "center", 0xFF000000);
+			var yOffset:int = (btn.name.length > 40) ? 0 : 6;
+
+			title = new FlxText(x, y + yOffset, 280, btn.name);
+			title.setFormat("comicrelief", 12, 0xFFFFFF, "center", 0xFF000000);
 			add(title);
 
 
@@ -74,8 +78,11 @@ package engine.visualnovel {
 			super.update();
 
 			if(isOver || btn.mouseOver) {
+				if(current == "off") { SFX.play("scroll"); }
+				current = "on";
 				btn.play("on");
 			} else {
+				current = "off";
 				btn.play("off");
 			}
 		}

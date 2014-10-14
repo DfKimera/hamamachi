@@ -1,6 +1,12 @@
 package {
 	public class Assets {
 
+		[Embed(source="../assets/bgm/bgm_cross_the_line.mp3")] public static var BGM_CROSS_THE_LINE:Class;
+		[Embed(source="../assets/bgm/bgm_inner_light.mp3")] public static var BGM_INNER_LIGHT:Class;
+		[Embed(source="../assets/bgm/bgm_mischevious_master.mp3")] public static var BGM_MISCHEVIOUS_MASTER:Class;
+		[Embed(source="../assets/bgm/bgm_paper_crisis.mp3")] public static var BGM_PAPER_CRISIS:Class;
+		[Embed(source="../assets/bgm/bgm_unlikely_hero.mp3")] public static var BGM_UNLIKELY_HERO:Class;
+
 		[Embed(source="../assets/backgrounds/city.jpg")] public static var BG_CITY:Class;
 		[Embed(source="../assets/backgrounds/beach.jpg")] public static var BG_BEACH:Class;
 		[Embed(source="../assets/backgrounds/coast.jpg")] public static var BG_COAST:Class;

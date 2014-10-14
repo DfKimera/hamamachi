@@ -8,6 +8,12 @@ package chapters {
 
 			var self:Chapter = this;
 
+			Game.playMusic("unlikely_hero");
+
+			StoryLog.scoreKaiju = 0;
+			StoryLog.scoreMahou = 0;
+			StoryLog.scoreNeutral = 0;
+
 			addQuestion("Selecione um personagem:")
 				.addOption("Monstros", function():void {
 					Chapter.start(Cutscene2_StartKaiju);

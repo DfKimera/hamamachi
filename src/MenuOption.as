@@ -12,6 +12,8 @@ package {
 		private var isOver:Boolean = false;
 		private var playedSFX:Boolean = false;
 
+		private var current:String = "off";
+
 		public function MenuOption(item:String, onTriggerHandler:Function) {
 
 			this.loadGraphic(SPRITE, true, false, 280, 60);
@@ -62,8 +64,11 @@ package {
 			super.update();
 
 			if(isOver || this.mouseOver) {
+				if(current == "off") { SFX.play("scroll"); }
+				current = "on";
 				play("on");
 			} else {
+				current = "off";
 				play("off");
 			}
 		}

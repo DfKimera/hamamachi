@@ -6,6 +6,7 @@ package chapters {
 	public class Cutscene5 extends ComicScene {
 
 		public override function prepare():void {
+			Game.playMusic("paper_crisis");
 			pages = [Assets.C302, Assets.C301, Assets.C503];
 		}
 

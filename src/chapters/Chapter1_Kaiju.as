@@ -14,7 +14,7 @@ package chapters {
 
 			var self:Chapter = this;
 
-			addEvent(Event.newBackground(this, Assets.BG_BEACH));
+			addEvent(Event.newBackground(this, Assets.BG_BEACH).loadNext());
 			addQuestion("Você avistou monstros na praia, o que quer fazer?")
 				.addOption("Se esconder", optHide)
 				.addOption("Jogar uma pedra", optThrowStone)
@@ -25,7 +25,7 @@ package chapters {
 		private function optHide():void {
 			StoryLog.scoreNeutral++;
 			addEvent(Event.newDialog(this, Brimax, "QUEM ESTÁ AÍ!?", "angry"));
-			addEvent(Event.newDialog(this, Traveler, "Eu acabei de chegar nesta cidade, não me machuquem, por favor!", "afraid"));
+			addEvent(Event.newDialog(this, Traveler, "Eu acabei de chegar nesta cidade, não me machuquem, por favor!", "worried"));
 			addEvent(Event.newDialog(this, Khrona, "Calma! Nós não queremos ferir ninguém."));
 			addEvent(Event.newDialog(this, Brimax, "Se não ficarem em nosso caminho!"));
 			addEvent(Event.newDialog(this, Traveler, "... o que está acontecendo?"));

@@ -86,7 +86,7 @@ package engine {
 			add(title);
 
 			text = new FlxText(textOffset[0], textOffset[1] + offsetY, textOffset[2], "");
-			text.setFormat("comicrelief", 18, 0xFFFFFF, "left", 0xFF000000);
+			text.setFormat("comicrelief", 14, 0xFFFFFF, "left", 0xFF000000);
 			add(text);
 
 
@@ -118,6 +118,8 @@ package engine {
 		}
 
 		public function skipDialog(spr:FlxExtendedSprite = null, x:int = 0, y:int = 0):void {
+			SFX.play("click");
+
 			if(!isCompleted) {
 				this.completeMessage();
 				return;

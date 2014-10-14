@@ -11,6 +11,8 @@ package engine {
 		public static var SFX_PICK:Class;
 		[Embed(source="../../assets/sfx/select2.mp3")]
 		public static var SFX_BELL:Class;
+		[Embed(source="../../assets/sfx/scrolling.mp3")]
+		public static var SFX_SCROLL:Class;
 
 		public static function play(name:String):void {
 			var sound:Class = SFX["SFX_"+name.toUpperCase()];

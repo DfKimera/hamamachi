@@ -78,7 +78,7 @@ package {
 			if(currentBGM == name) { return; }
 			currentBGM = name;
 
-			var bgm:Class = Game["BGM_" + name.toUpperCase()];
+			var bgm:Class = Assets["BGM_" + name.toUpperCase()];
 			if(!bgm || !(bgm is Class)) {
 				trace("Invalid BGM! ", name, bgm);
 				return;

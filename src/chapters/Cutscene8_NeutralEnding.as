@@ -6,6 +6,7 @@ package chapters {
 	public class Cutscene8_NeutralEnding extends ComicScene {
 
 		public override function prepare():void {
+			Game.playMusic("inner_light");
 			pages = [Assets.C801, Assets.C802, Assets.C803];
 		}
 

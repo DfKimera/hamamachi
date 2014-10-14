@@ -6,6 +6,7 @@ package chapters {
 	public class Cutscene2_StartKaiju extends ComicScene {
 
 		public override function prepare():void {
+			Game.playMusic("mischevious_master");
 			pages = [Assets.C201, Assets.C202, Assets.C203];
 		}
 

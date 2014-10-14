@@ -9,6 +9,8 @@ package engine.visualnovel {
 		public var newDialog:Dialog = null;
 		public var newQuestion:Question = null;
 
+		public var doLoadNext:Boolean = false;
+
 		public function background(background:Class):Event {
 			this.newBackground = background;
 			return this;
@@ -38,6 +40,11 @@ package engine.visualnovel {
 
 		public function setChapter(chapter:Chapter):Event {
 			this.chapter = chapter;
+			return this;
+		}
+
+		public function loadNext():Event {
+			this.doLoadNext = true;
 			return this;
 		}
 

@@ -1,11 +1,14 @@
 package {
 	import engine.SFX;
 
+	import org.flixel.FlxGroup;
+	import org.flixel.FlxText;
+
 	import org.flixel.plugin.photonstorm.FlxExtendedSprite;
 
-	public class MenuOption extends FlxExtendedSprite {
+	public class MenuOption extends FlxGroup {
 
-		[Embed(source="../assets/menu_buttons.png")]
+		[Embed(source="../assets/choice_btn.png")]
 		private var SPRITE:Class;
 
 		private var onTriggerHandler:Function;
@@ -14,27 +17,30 @@ package {
 
 		private var current:String = "off";
 
-		public function MenuOption(item:String, onTriggerHandler:Function) {
+		private var btn:FlxExtendedSprite;
+		private var title:FlxText;
 
-			this.loadGraphic(SPRITE, true, false, 280, 60);
+		public function MenuOption(item:String, onTriggerHandler:Function, x:int, y:int) {
+
+			btn = new FlxExtendedSprite(x,y);
+			btn.loadGraphic(SPRITE, true, false, 280, 40);
 
 			this.onTriggerHandler = onTriggerHandler;
-			this.mouseReleasedCallback = this.onClick;
-			this.name = item;
+			btn.mouseReleasedCallback = this.onClick;
+			btn.name = item;
 
-			switch(item) {
-				case "Jogar":
-					addAnimation("off", [0]);
-					addAnimation("on", [1]);
-					break;
+			btn.addAnimation("off", [0]);
+			btn.addAnimation("on", [1]);
 
-				case "Créditos":
-					addAnimation("off", [2]);
-					addAnimation("on", [3]);
-					break;
-			}
+			btn.play("off");
 
-			play("off");
+			add(btn);
+
+			var yOffset:int = (btn.name.length > 40) ? 0 : 6;
+
+			title = new FlxText(x, y + yOffset, 280, btn.name);
+			title.setFormat("comicrelief", 16, 0xFFFFFF, "center", 0xFF000000);
+			add(title);
 
 
 		}
@@ -63,13 +69,13 @@ package {
 
 			super.update();
 
-			if(isOver || this.mouseOver) {
+			if(isOver || btn.mouseOver) {
 				if(current == "off") { SFX.play("scroll"); }
 				current = "on";
-				play("on");
+				btn.play("on");
 			} else {
 				current = "off";
-				play("off");
+				btn.play("off");
 			}
 		}
 	}

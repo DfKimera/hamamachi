@@ -6,7 +6,10 @@ package {
 		[Embed(source="../assets/bgm/bgm_mischevious_master.mp3")] public static var BGM_MISCHEVIOUS_MASTER:Class;
 		[Embed(source="../assets/bgm/bgm_paper_crisis.mp3")] public static var BGM_PAPER_CRISIS:Class;
 		[Embed(source="../assets/bgm/bgm_unlikely_hero.mp3")] public static var BGM_UNLIKELY_HERO:Class;
+		[Embed(source="../assets/bgm/bgm_griefing_gunners.mp3")] public static var BGM_GRIEFING_GUNNERS:Class;
+		[Embed(source="../assets/bgm/bgm_radio_martini.mp3")] public static var BGM_RADIO_MARTINI:Class;
 
+		[Embed(source="../assets/choice_background.jpg")] public static var BG_CHOICE:Class;
 		[Embed(source="../assets/backgrounds/city.jpg")] public static var BG_CITY:Class;
 		[Embed(source="../assets/backgrounds/beach.jpg")] public static var BG_BEACH:Class;
 		[Embed(source="../assets/backgrounds/coast.jpg")] public static var BG_COAST:Class;

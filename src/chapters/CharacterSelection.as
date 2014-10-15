@@ -1,6 +1,7 @@
 package chapters {
 
 	import engine.visualnovel.Chapter;
+	import engine.visualnovel.Event;
 
 	public class CharacterSelection extends Chapter {
 
@@ -14,6 +15,7 @@ package chapters {
 			StoryLog.scoreMahou = 0;
 			StoryLog.scoreNeutral = 0;
 
+			addEvent(Event.newBackground(this, Assets.BG_CHOICE).loadNext());
 			addQuestion("Selecione um personagem:")
 				.addOption("Monstros", function():void {
 					Chapter.start(Cutscene2_StartKaiju);

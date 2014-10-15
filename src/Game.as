@@ -26,6 +26,7 @@ package {
 			Security.allowDomain("*");
 
 			Game.instance = this;
+
 			super(800, 600, Menu, 1, 60, 30, false);
 
 			Cursor.useArrow();
@@ -75,7 +76,8 @@ package {
 		 * @param name String
 		 */
 		public static function playMusic(name:String):void {
-			if(currentBGM == name) { return; }
+			trace("Playing BGM: ", name);
+			if(currentBGM == name) { trace("Already plahing BGM: ", name); return; }
 			currentBGM = name;
 
 			var bgm:Class = Assets["BGM_" + name.toUpperCase()];
@@ -84,7 +86,7 @@ package {
 				return;
 			}
 
-			FlxG.playMusic(bgm, 0.5);
+			FlxG.playMusic(bgm, 1);
 		}
 
 		/**

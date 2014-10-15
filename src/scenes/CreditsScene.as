@@ -7,12 +7,12 @@ package scenes {
 
 	public class CreditsScene extends UIScene {
 
-		[Embed(source="../../assets/credits_screen.png")]
+		[Embed(source="../../assets/credits_screen.jpg")]
 		public var BACKGROUND_SPRITE:Class;
 
 		public override function prepare():void {
 			setBackground(BACKGROUND_SPRITE);
-			Game.playMusic("credits");
+			Game.playMusic("griefing_gunners");
 		}
 
 		public override function update():void {

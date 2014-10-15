@@ -9,11 +9,9 @@ package {
 
 	public class Menu extends FlxState {
 
-		private var buttonOffset:Array = [260, 300];
-		private var buttonHeight:int = 60;
-		private var baseY:int = 0;
+		private var buttonOffset:Array = [115, 370];
 
-		[Embed(source="../assets/menu_background.png")]
+		[Embed(source="../assets/menu_background.jpg")]
 		public var BACKGROUND_SPRITE:Class;
 
 		public var background:FlxSprite;
@@ -25,13 +23,12 @@ package {
 
 		public override function create():void {
 
-			Game.playMusic("menu");
+			Game.playMusic("radio_martini");
 
 			background = new FlxSprite(0,0);
 			background.loadGraphic(BACKGROUND_SPRITE);
 			add(background);
 
-			baseY = buttonOffset[1];
 			createOptions();
 			add($options);
 
@@ -39,11 +36,11 @@ package {
 
 		public function createOptions():void {
 
-			addOption("Jogar", function():void {
+			addOption("Jogar", 0, 0, function():void {
 				Game.start();
 			});
 
-			addOption("Créditos", function():void {
+			addOption("Créditos", 300, 0, function():void {
 				Game.openCredits();
 			});
 
@@ -55,17 +52,13 @@ package {
 			(options[name] as MenuOption).trigger();
 		}
 
-		public function addOption(name:String,  callback:Function):void {
+		public function addOption(name:String, x:int, y:int, callback:Function):void {
 
-			var option:MenuOption = new MenuOption(name, callback);
-			option.x = buttonOffset[0];
-			option.y = baseY;
+			var option:MenuOption = new MenuOption(name, callback, buttonOffset[0] + x, buttonOffset[1] + y);
 
 			options[name] = option;
 			optionIndex.push(name);
 			$options.add(option);
-
-			baseY += buttonHeight;
 
 		}
 

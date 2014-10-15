@@ -118,12 +118,14 @@ package engine {
 		}
 
 		public function skipDialog(spr:FlxExtendedSprite = null, x:int = 0, y:int = 0):void {
-			SFX.play("click");
+
 
 			if(!isCompleted) {
 				this.completeMessage();
 				return;
 			}
+
+			SFX.play("pick");
 
 			isActive = false;
 			var dialog:Dialog = this;
@@ -148,6 +150,7 @@ package engine {
 			this.text.text = this.fxDisplay;
 			this.isCompleted = true;
 			this.fxTimer.stop();
+			SFX.play("click");
 		}
 
 		private function displayMoreCharacters(timer:FlxTimer = null):void {

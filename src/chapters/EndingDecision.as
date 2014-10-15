@@ -1,10 +1,13 @@
 package chapters {
 	import engine.visualnovel.Chapter;
+	import engine.visualnovel.Event;
 	import engine.visualnovel.Question;
 
 	public class EndingDecision extends Chapter {
 
 		public function EndingDecision() {
+
+			addEvent(Event.newBackground(this, Assets.BG_CHOICE).loadNext());
 			var question:Question = addQuestion("Qual é seu pensamento?");
 			question.addOption("Eu tenho uma solução", optSolution);
 

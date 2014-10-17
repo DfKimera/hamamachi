@@ -10,19 +10,4 @@ Graphic novel game, created in the Flixel / Whitewolf engine.
 
 ===================
 
-##Equipe:
-
-####Aryel 'DfKimera' Tupinambá
-Lead Engine &amp; Gameplay Programmer
-
-####Letícia Kido
-Lead Art Direction, Concept Artist, Story
-
-####Thays Oyakawa
-Artist, Coloring, Story
-
-####Camila Moura Alves
-Artist, Coloring, Story
-
-####Lígia Harumi Yamamoto
-Artist, Coloring, Story
+![Credits](https://raw.githubusercontent.com/DfKimera/hamamachi/master/assets/credits_screen.jpg)

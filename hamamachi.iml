@@ -3,15 +3,19 @@
   <component name="FlexBuildConfigurationManager" active="hamamachi">
     <configurations>
       <configuration name="hamamachi" pure-as="true" main-class="Bootstrap" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/hamamachi" wrapper-template-path="$MODULE_DIR$/html-template">
-        <dependencies target-player="15.0">
+        <dependencies target-player="11.1">
           <entries>
             <entry library-id="56a0f87e-efa0-4298-b90b-f2c8eaab036b">
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="AIR SDK" />
+          <sdk name="4.6.0" />
         </dependencies>
-        <compiler-options />
+        <compiler-options>
+          <map>
+            <entry key="compiler.debug.swf" value="true" />
+          </map>
+        </compiler-options>
         <packaging-air-desktop />
         <packaging-android />
         <packaging-ios />
@@ -25,7 +29,11 @@
           </entries>
           <sdk name="AIR SDK" />
         </dependencies>
-        <compiler-options />
+        <compiler-options>
+          <map>
+            <entry key="compiler.debug.swf" value="false" />
+          </map>
+        </compiler-options>
         <packaging-air-desktop use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/Bootstrap-app.xml" package-file-name="Hamamachi" />
         <packaging-android />
         <packaging-ios />
@@ -38,7 +46,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="AIR SDK" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="jdk" jdkName="4.6.0&#9;AIR SDK" jdkType="__CompositeFlexSdk__" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
       <library type="flex">

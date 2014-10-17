@@ -4,6 +4,7 @@ package {
 	public class Preloader extends FlxPreloader {
 		public function Preloader() {
 			className = "Bootstrap";
+			minDisplayTime = 1;
 			super();
 		}
 	}
